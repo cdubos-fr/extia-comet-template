@@ -1,0 +1,75 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
+%\usetheme[mode=dark]{extia}
+\usetheme[mode=light]{extia}
+
+\title{Example de titre \\Sur plusieur ligne}
+\date{\today}
+\author{A. Uthor - \texttt{author@addr.fr}}
+
+\AtBeginSection[]
+{
+    \begin{frame}{Sommaire}
+        \hfill
+        \parbox[t]{.8\textwidth}{
+            \begin{minipage}[c][0.25\textheight]{\textwidth}
+                \Large
+                \tableofcontents[currentsection,currentsubsection]
+            \end{minipage}
+        }
+    \end{frame}
+}
+
+\begin{document}
+{
+    \begin{frame}
+        \titlepage
+    \end{frame}
+}
+
+\begin{frame}{Avant de commencer}{Présention Extia}
+    \begin{block}{Extia, c'est quoi}
+        \begin{minipage}{0.7\paperwidth}
+            \begin{itemize}
+                \item Extia c'est d'abord qui, ensuite quoi !
+                \item C'est podium great place to work depuis 2017
+                \item Plus de 2000 collaborateurs
+                \item Plus de 15 agences en Europes
+            \end{itemize}
+        \end{minipage}
+    \end{block}
+    \begin{block}{Comet'}
+        \begin{minipage}{0.7\paperwidth}
+            \begin{itemize}
+                \item Meetup sur un thème choisi
+                \item Communauté Métier => Comet'
+                \item Plusieur type (Technique, Sectoriel, Transverse)
+            \end{itemize}
+        \end{minipage}
+        \begin{minipage}{0.2\paperwidth}
+            \begin{center}
+                \includegraphics[height=0.4cm]{media/logo/dark/comet.png}
+            \end{center}
+        \end{minipage}
+    \end{block}
+\end{frame}
+
+\section{hello}
+\subsection{Hello2}
+\begin{frame}
+\frametitle{A title}
+\framesubtitle{The proof uses \textit{reductio ad absurdum}.}
+\begin{theorem}
+There is no largest prime number. \end{theorem}
+\begin{enumerate}
+\item<1-| alert@1> Suppose $p$ were the largest prime number.
+\item<2-> Let $q$ be the product of the first $p$ numbers.
+\item<3-> Then $q+1$ is not divisible by any of them.
+\item<1-> But $q + 1$ is greater than $1$, thus divisible by some prime
+number not in the first $p$ numbers.
+\end{enumerate}
+\end{frame}
+
+\end{document}

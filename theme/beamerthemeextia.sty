@@ -4,12 +4,13 @@
 \RequirePackage{tikz}
 
 \DeclareOptionBeamer{color}{\def\beamer@extia@color{#1}}
-\DeclareOptionBeamer{logo}{\def\beamer@extia@logo{#1}}
 \DeclareOptionBeamer{mode}{\def\beamer@extia@mode{#1}}
 \ExecuteOptionsBeamer{color=purple}
-\ExecuteOptionsBeamer{logo=comete}
 \ExecuteOptionsBeamer{mode=dark}
 \ProcessOptionsBeamer
+
+\def\beamer@extia@modedark{dark}%
+\def\beamer@extia@modelight{light}%
 
 % Settings
 \useinnertheme[mode=\beamer@extia@mode, color=\beamer@extia@color]{extia}
@@ -18,7 +19,13 @@
 \usecolortheme[color=\beamer@extia@color,mode=\beamer@extia@mode]{extia}
 \usefonttheme{professionalfonts}
 
-\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\ifx\beamer@extia@mode\beamer@extia@modelight%
+    \setbeamertemplate{blocks}[rounded][shadow=true]
+\else%
+    \setbeamertemplate{blocks}[rounded][shadow=false]
+\fi%
 \setbeamertemplate{navigation symbols}{}
+
 
 \mode<all>

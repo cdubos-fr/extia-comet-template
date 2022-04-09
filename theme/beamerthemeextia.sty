@@ -1,0 +1,24 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+
+\DeclareOptionBeamer{color}{\def\beamer@extia@color{#1}}
+\DeclareOptionBeamer{logo}{\def\beamer@extia@logo{#1}}
+\DeclareOptionBeamer{mode}{\def\beamer@extia@mode{#1}}
+\ExecuteOptionsBeamer{color=purple}
+\ExecuteOptionsBeamer{logo=comete}
+\ExecuteOptionsBeamer{mode=dark}
+\ProcessOptionsBeamer
+
+% Settings
+\useinnertheme[mode=\beamer@extia@mode, color=\beamer@extia@color]{extia}
+\useinnertheme{circles}
+\useoutertheme[mode=\beamer@extia@mode]{extia}
+\usecolortheme[color=\beamer@extia@color,mode=\beamer@extia@mode]{extia}
+\usefonttheme{professionalfonts}
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{navigation symbols}{}
+
+\mode<all>

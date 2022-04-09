@@ -1,0 +1,54 @@
+\mode<presentation>
+
+\DeclareOptionBeamer{color}{\def\beamer@extia@color{#1}}
+\DeclareOptionBeamer{mode}{\def\beamer@extia@mode{#1}}
+\ExecuteOptionsBeamer{color=purple}
+\ExecuteOptionsBeamer{mode=dark}
+\ProcessOptionsBeamer
+
+\def\beamer@extia@colorpurple{purple}%
+
+
+\def\beamer@extia@modedark{dark}%
+\def\beamer@extia@modelight{light}%
+
+
+\definecolor{extiadark}{rgb}{0.5, 0.109, 0.50}
+\definecolor{extialight}{rgb}{1, 1, 1}
+
+
+\ifx\beamer@extia@mode\beamer@extia@modelight%
+\setbeamercolor{palette primary}{bg=extialight,fg=white}
+\setbeamercolor{palette secondary}{bg=extialight,fg=white}
+\setbeamercolor{palette tertiary}{bg=extialight,fg=white}
+\setbeamercolor{palette quaternary}{bg=extialight,fg=white}
+\setbeamercolor{structure}{fg=extiadark,bg=white!80!black}
+\setbeamercolor{section in toc}{fg=black,bg=extialight}
+\setbeamercolor{item projected}{bg=extialight!70!black,fg=white}
+\else%
+  \ifx\beamer@extia@mode\beamer@extia@modedark%
+    \setbeamercolor{palette primary}{bg=extiadark,fg=white}
+    \setbeamercolor{palette secondary}{bg=extiadark,fg=white}
+    \setbeamercolor{palette tertiary}{bg=extiadark,fg=white}
+    \setbeamercolor{palette quaternary}{bg=extiadark,fg=white}
+    \setbeamercolor{structure}{fg=extialight,bg=black!80!white}
+    \setbeamercolor{section in toc}{fg=black,bg=extiadark}
+    \setbeamercolor{item projected}{bg=extiadark!70!black,fg=white}
+  \else%
+    \setbeamercolor{palette primary}{bg=extia,fg=white}
+    \setbeamercolor{palette secondary}{bg=extia,fg=white}
+    \setbeamercolor{palette tertiary}{bg=extia,fg=white}
+    \setbeamercolor{palette quaternary}{bg=extia,fg=white}
+    \setbeamercolor{structure}{fg=extia,bg=gray}
+    \setbeamercolor{section in toc}{fg=black,bg=extia}
+    \setbeamercolor{item projected}{bg=extia!70!black,fg=white}
+
+  \fi%
+\fi%
+
+\setbeamercolor*{title page header}{fg=white}
+\setbeamercolor*{author}{fg=white}
+\setbeamercolor*{date}{fg=white}
+
+\mode
+<all>

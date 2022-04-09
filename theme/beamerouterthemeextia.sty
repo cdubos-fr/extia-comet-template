@@ -1,0 +1,105 @@
+\mode<presentation>
+
+\DeclareOptionBeamer{mode}{\def\beamer@extia@mode{#1}}
+\ExecuteOptionsBeamer{mode=dark}
+\ProcessOptionsBeamer
+
+\def\beamer@extia@modelight{light}%
+\def\beamer@extia@modedark{dark}%
+
+\ifx\beamer@extia@mode\beamer@extia@modelight%
+  \def\beamer@extia@modereverse{dark}
+  \setbeamercolor*{author in head/foot}{fg=extiadark}
+  \setbeamercolor*{title in head/foot}{fg=extiadark}
+  \setbeamercolor*{date in head/foot}{fg=extiadark}
+
+  \setbeamercolor*{section in head/foot}{fg=extiadark}
+  \setbeamercolor*{subsection in head/foot}{fg=extiadark}
+
+
+\else%
+  \def\beamer@extia@modereverse{light}
+  \setbeamercolor*{author in head/foot}{fg=extialight}
+  \setbeamercolor*{title in head/foot}{fg=extialight}
+  \setbeamercolor*{date in head/foot}{fg=extialight}
+
+  \setbeamercolor*{section in head/foot}{fg=extialight}
+  \setbeamercolor*{subsection in head/foot}{fg=extialight}
+
+
+\fi%
+
+
+\setbeamertemplate{page number in head/foot}[totalframenumber]%
+
+\defbeamertemplate*{footline}{extia theme}
+{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left,leftskip=1em]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.666666\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}
+    \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
+  color(0pt)=(frametitle.bg);
+  color(\paperwidth)=(frametitle right.bg)}
+
+\AtBeginDocument{
+  \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+    color(0pt)=(bg);
+    color(4pt)=(black!50!bg)}
+}
+
+\defbeamertemplate*{frametitle}{extia theme}
+{%
+  \nointerlineskip%
+  \vskip0.1cm%
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+          \vbox{}\vskip-.75ex%
+          \leftskip0.33\paperwidth%
+          \rightskip0.3cm plus1fil\leavevmode
+          \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\strut\insertframetitle\par%
+          {\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+          \nointerlineskip
+          \vbox{}%
+          \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 2pt%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+        \usebeamercolor{frametitle right}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+      }%
+    \hskip-\Gm@rmargin%
+  }%
+  \nointerlineskip
+    \vskip-0.2pt
+    \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+    \vskip-2pt
+}
+
+\addtobeamertemplate{frametitle}{}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west,yshift=-0.3cm] at (current page.north west) {\includegraphics[height=0.5cm]{media/logo/\beamer@extia@modereverse/extia.png}};
+    \node[anchor=north east,yshift=-0.3cm] at (current page.north east) {\includegraphics[height=0.5cm]{media/logo/\beamer@extia@modereverse/comet.png}};
+  \end{tikzpicture}
+}

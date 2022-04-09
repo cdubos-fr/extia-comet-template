@@ -1,0 +1,50 @@
+\mode<presentation>
+
+\DeclareOptionBeamer{color}{\def\beamer@extia@color{#1}}
+\ExecuteOptionsBeamer{color=purple}
+\DeclareOptionBeamer{mode}{\def\beamer@extia@mode{#1}}
+\ExecuteOptionsBeamer{mode=dark}
+\ProcessOptionsBeamer
+
+
+\def\beamer@extia@modedark{dark}%
+\def\beamer@extia@modelight{light}%
+
+
+\setbeamerfont{title}{size=\huge}
+
+\ifx\beamer@extia@mode\beamer@extia@modelight%
+  \setbeamercolor{background canvas}{bg=extialight}
+  \def\beamer@extia@modereverse{dark}
+\else%
+  \setbeamercolor{background canvas}{bg=extiadark}
+  \def\beamer@extia@modereverse{light}
+\fi%
+
+
+% Title page
+\defbeamertemplate*{title page}{extia}[1][]
+{
+  \vskip0.05cm%
+  \begin{center}
+    \includegraphics[height=1cm]{media/logo/\beamer@extia@modereverse/extia.png}
+    \hfill
+    \includegraphics[height=1cm]{media/logo/\beamer@extia@modereverse/comet.png}
+    \hfill
+    \includegraphics[height=1cm]{media/logo/BW.jpg}
+  \end{center}
+  \vskip1.5cm%
+  \begin{beamercolorbox}[center,sep=8pt,#1]{title page header}
+    \usebeamercolor[fg]{frametitle}\usebeamerfont{title}\textbf{\inserttitle}\par%
+  \end{beamercolorbox}%
+  \vskip1cm%
+  \begin{center}
+    \includegraphics[height=0.5cm]{media/logo/\beamer@extia@modereverse/rezo.png}\\
+    {\usebeamercolor[fg]{frametitle} www.communautesmetiersbyextia.fr }
+  \end{center}
+}
+
+\setbeamertemplate{enumerate items}[circle]
+
+\mode
+<all>

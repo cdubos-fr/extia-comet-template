@@ -1,13 +1,16 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169, xetex, 12pt]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[T1]{fontenc}
-%\usetheme[mode=dark]{extia}
-\usetheme[mode=light]{extia}
+\usepackage{datetime}
+
+\usetheme[mode=dark]{extia}
+%\usetheme[mode=light]{extia}
 
 \title{Example de titre \\Sur plusieur ligne}
-\date{\today}
 \author{A. Uthor - \texttt{author@addr.fr}}
+\institute{Extia}
+\newdate{date}{06}{09}{2022}
+\date{\displaydate{date}}
 
 \AtBeginSection[]
 {

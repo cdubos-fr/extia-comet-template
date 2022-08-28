@@ -15,8 +15,6 @@
 
   \setbeamercolor*{section in head/foot}{fg=extiadark}
   \setbeamercolor*{subsection in head/foot}{fg=extiadark}
-
-
 \else%
   \def\beamer@extia@modereverse{light}
   \setbeamercolor*{author in head/foot}{fg=extialight}
@@ -25,23 +23,23 @@
 
   \setbeamercolor*{section in head/foot}{fg=extialight}
   \setbeamercolor*{subsection in head/foot}{fg=extialight}
-
-
 \fi%
-
 
 \setbeamertemplate{page number in head/foot}[totalframenumber]%
 
 \defbeamertemplate*{footline}{extia theme}
 {%
   \leavevmode%
-  \hbox{%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left,leftskip=1em]{author in head/foot}%
+  \hbox{%\if
+  \begin{beamercolorbox}[wd=.2222222\paperwidth,ht=2.25ex,dp=1ex,left,leftskip=1em]{author in head/foot}%
     \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.666666\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{date in head/foot}%
+  \begin{beamercolorbox}[wd=.2222222\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{section in head/foot}%
+    \usebeamerfont{section in head/foot}\insertsection{}\expandafter\ifblank\expandafter{\subsecname}{}{ -> \insertsubsection}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5555555\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{date in head/foot}%
     \usebeamerfont{date in head/foot}\insertshortdate{}
-    \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}
+    \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot} - \usebeamertemplate{page number in head/foot}
   \end{beamercolorbox}}%
   \vskip0pt%
 }
@@ -75,7 +73,7 @@
           \rightskip0.3cm plus1fil\leavevmode
           \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\strut\insertframetitle\par%
           {\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
-          \nointerlineskip
+           \nointerlineskip
           \vbox{}%
           \end{minipage}}%
       \beamer@tempdim=\ht\beamer@tempbox%

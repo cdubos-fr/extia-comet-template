@@ -34,6 +34,7 @@ then
     exit 1
 fi
 
+fc-cache -fv
 
 echo 'INSTALLATION SUCCEED'
 exit 0

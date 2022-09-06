@@ -34,14 +34,13 @@
   \begin{beamercolorbox}[wd=.2222222\paperwidth,ht=2.25ex,dp=1ex,left,leftskip=1em]{author in head/foot}%
     \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.2222222\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{section in head/foot}%
+  \begin{beamercolorbox}[wd=.3333333\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{section in head/foot}%
     \usebeamerfont{section in head/foot}\insertsection{}\expandafter\ifblank\expandafter{\subsecname}{}{ -> \insertsubsection}
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.5555555\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{date in head/foot}%
+  \begin{beamercolorbox}[wd=.4444444\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{date in head/foot}%
     \usebeamerfont{date in head/foot}\insertshortdate{}
     \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot} - \usebeamertemplate{page number in head/foot}
   \end{beamercolorbox}}%
-  \vskip0pt%
 }
 
 \setbeamersize{text margin left=1em,text margin right=1em}
@@ -58,8 +57,7 @@
 
 \defbeamertemplate*{frametitle}{extia theme}
 {%
-  \nointerlineskip%
-  \vskip0.1cm%
+  \vskip0.2em%
   \hbox{\leavevmode
     \advance\beamer@leftmargin by -12bp%
     \advance\beamer@rightmargin by -12bp%
@@ -67,15 +65,15 @@
     \advance\beamer@tempdim by \beamer@leftmargin%
     \advance\beamer@tempdim by \beamer@rightmargin%
     \hskip-\Gm@lmargin\hbox{%
-      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
-          \vbox{}\vskip-.75ex%
+        \setbox\beamer@tempbox=\hbox{
+        \begin{minipage}[b]{\paperwidth}%
           \leftskip0.1\paperwidth%
           \rightskip0.3cm plus1fil\leavevmode
           \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\strut\insertframetitle\par%
           {\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
-           \nointerlineskip
-          \vbox{}%
-          \end{minipage}}%
+           \vspace{0.1em}
+          \end{minipage}
+        }%
       \beamer@tempdim=\ht\beamer@tempbox%
       \advance\beamer@tempdim by 2pt%
       \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
@@ -89,15 +87,12 @@
       }%
     \hskip-\Gm@rmargin%
   }%
-  \nointerlineskip
-    \vskip-0.2pt
-    \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
-    \vskip-2pt
+  \vskip-1.5em
 }
 
 \addtobeamertemplate{frametitle}{}{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=north west,yshift=-0.3cm] at (current page.north west) {\includegraphics[height=0.5cm]{media/logo/\beamer@extia@modereverse/extia.png}};
-    \node[anchor=north east,yshift=-0.3cm] at (current page.north east) {\includegraphics[height=0.5cm]{media/logo/\beamer@extia@modereverse/comet.png}};
+    \node[anchor=north west,yshift=-6.5ex, xshift=6ex] at (current page.north west) {\includegraphics[height=1.5em]{media/logo/\beamer@extia@modereverse/extia.png}};
+    \node[anchor=north east,yshift=-6.5ex, xshift=5ex] at (current page.north east) {\includegraphics[height=1.5em]{media/logo/\beamer@extia@modereverse/comet.png}};
   \end{tikzpicture}
 }
